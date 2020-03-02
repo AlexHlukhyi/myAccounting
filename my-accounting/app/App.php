@@ -1,8 +1,5 @@
 <?php
 
-use Controller\AuthController;
-use Controller\TransactionController;
-
 class App {
     private $controller;
 
@@ -12,75 +9,34 @@ class App {
 
     public function run() {
         $action = 'index';
+        $controller = 'TransactionController';
         //parsing url
         $routes = explode('/', str_replace('?', '/', $_SERVER['REQUEST_URI']));
         if (!empty($routes[1])) {
-            $action = $routes[1];
+            $controller = ucfirst($routes[1]) . 'Controller';
+        }
+        if (!empty($routes[2])) {
+            $action = $routes[2];
         }
         //check if user is already in session
         if (!in_array($action, array('login', 'signin', 'signup', 'signout', 'register'))) {
             if(!$_SESSION['user']) {
+                $controller = 'AuthController';
                 $action = 'login';
             }
         }
-        //wrong routing here :(
-        //it works but it shouldn't look like that
-        switch ($action) {
-            case 'login': {
-                $this->controller = new AuthController();
-                $this->controller->login();
-                break;
+
+        if(file_exists('app/controller/' . $controller . '.php')) {
+            include 'app/controller/' . $controller . '.php';
+            $controller = 'Controller\\' . $controller;
+            $this->controller = new $controller();
+            if(method_exists($this->controller, $action)) {
+                $this->controller->$action();
+            } else {
+                die('Method' . $action . '() in ' . $controller . 'not found!');
             }
-            case 'register': {
-                $this->controller = new AuthController();
-                $this->controller->register();
-                break;
-            }
-            case 'signin': {
-                $this->controller = new AuthController();
-                $this->controller->signin();
-                break;
-            }
-            case 'signup': {
-                $this->controller = new AuthController();
-                $this->controller->signup();
-                break;
-            }
-            case 'signout': {
-                $this->controller = new AuthController();
-                $this->controller->signout();
-                break;
-            }
-            case 'create': {
-                $this->controller = new TransactionController();
-                $this->controller->create();
-                break;
-            }
-            case 'store': {
-                $this->controller = new TransactionController();
-                $this->controller->store();
-                break;
-            }
-            case 'edit': {
-                $this->controller = new TransactionController();
-                $this->controller->edit();
-                break;
-            }
-            case 'update': {
-                $this->controller = new TransactionController();
-                $this->controller->update();
-                break;
-            }
-            case 'destroy': {
-                $this->controller = new TransactionController();
-                $this->controller->destroy();
-                break;
-            }
-            default: {
-                $this->controller = new TransactionController();
-                $this->controller->index();
-                break;
-            }
+        } else {
+            die($controller . ' not found!');
         }
     }
 }

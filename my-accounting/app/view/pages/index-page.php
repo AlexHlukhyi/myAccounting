@@ -22,7 +22,7 @@
                 <?php echo $_SESSION['user']->getUserName(); ?>
             </span>
         <span class="navbar-text">
-                <a class="nav-link" href="signout">Выйти</a>
+                <a class="nav-link" href="/auth/signout">Выйти</a>
             </span>
     </div>
 </nav>
@@ -47,15 +47,15 @@
                             <td><? echo $transaction->getMoneyAmount(); ?></td>
                             <td><? echo $transaction->getDate()->format('H:i:s d.m.Y'); ?></td>
                             <td>
-                                <a class="btn btn-dark" href="edit?id=<? echo $transaction->getId(); ?>">Редактировать</a>
-                                <a class="btn btn-danger" href="destroy?id=<? echo $transaction->getId(); ?>">Удалить</a>
+                                <a class="btn btn-dark" href="/transaction/edit?id=<? echo $transaction->getId(); ?>">Редактировать</a>
+                                <a class="btn btn-danger" href="/transaction/destroy?id=<? echo $transaction->getId(); ?>">Удалить</a>
                             </td>
                         </tr>
                     <?php
                 }
             ?>
             </table>
-            <a class="btn btn-dark mt-5 text-center" href="create">Добавить новую операцию</a>
+            <a class="btn btn-dark mt-5 text-center" href="/transaction/create">Добавить новую операцию</a>
         </div>
     </div>
 </main>

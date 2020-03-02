@@ -19,7 +19,7 @@
                 </li>
             </ul>
             <span class="navbar-text">
-                <a class="nav-link" href="login">Авторизоваться</a>
+                <a class="nav-link" href="/auth/login">Авторизоваться</a>
             </span>
         </div>
     </nav>
@@ -27,7 +27,7 @@
 <main>
     <div class="container w-25">
         <div class="text-center mt-5">
-            <form method="post" action="signup">
+            <form method="post" action="/auth/signup">
                 <div class="form-group">
                     <input class="form-control" type="text" name="username" placeholder="Логин" required>
                 </div>

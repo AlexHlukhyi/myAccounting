@@ -28,7 +28,7 @@ class TransactionController extends Controller {
             $transaction->setDate(new DateTime($_POST['date'] . ' ' . $_POST['time']));
             $this->model->insTransaction($transaction, $_SESSION['user']->getId());
         }
-        header('Location: index');
+        header('Location: /transaction/index');
     }
 
     function edit() {
@@ -36,7 +36,7 @@ class TransactionController extends Controller {
             $transaction = $this->model->getTransaction($_GET['id']);
             $this->view->makeView('edit', $transaction);
         } else {
-            header('Location: index');
+            header('Location: /transaction/index');
         }
     }
 
@@ -50,7 +50,7 @@ class TransactionController extends Controller {
             $transaction->setDate(new DateTime($_POST['date'] . ' ' . $_POST['time']));
             $this->model->editTransaction($transaction);
         }
-        header('Location: index');
+        header('Location: /transaction/index');
     }
 
     function destroy() {
@@ -59,6 +59,6 @@ class TransactionController extends Controller {
             $transaction->setId($_GET['id']);
             $this->model->deleteTransaction($transaction);
         }
-        header('Location: index');
+        header('Location: /transaction/index');
     }
 }

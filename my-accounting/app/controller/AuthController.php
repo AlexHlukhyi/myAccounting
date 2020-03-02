@@ -22,7 +22,7 @@ class AuthController extends Controller {
             if ($user->checkPassword($_POST['password'])) {
                 session_start();
                 $_SESSION['user'] = $user;
-                header('Location: index');
+                header('Location: /transaction/index');
             }
         }
     }
@@ -37,7 +37,7 @@ class AuthController extends Controller {
                 $this->model->insUser($user);
                 session_start();
                 $_SESSION['user'] = $user;
-                header('Location: login');
+                header('Location: /transaction/index');
             }
         }
     }
@@ -45,6 +45,6 @@ class AuthController extends Controller {
     function signout() {
         session_start();
         unset($_SESSION['user']);
-        header('Location: login');
+        header('Location: /auth/login');
     }
 }
