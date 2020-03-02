@@ -26,8 +26,8 @@ class App {
             }
         }
 
-        if(file_exists('app/controller/' . $controller . '.php')) {
-            include 'app/controller/' . $controller . '.php';
+        if(file_exists('../app/controllers/' . $controller . '.php')) {
+            include '../app/controllers/' . $controller . '.php';
             $controller = 'Controller\\' . $controller;
             $this->controller = new $controller();
             if(method_exists($this->controller, $action)) {
