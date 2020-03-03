@@ -52,8 +52,8 @@
                                 ?>
                             </td>
                             <td>
-                                <a class="btn btn-dark" href="/transaction/edit?id=<? echo $transaction->getId(); ?>">Редактировать</a>
-                                <a class="btn btn-danger" href="/transaction/destroy?id=<? echo $transaction->getId(); ?>">Удалить</a>
+                                <a class="btn btn-dark" href="/transaction/edit?id=<? echo $transaction->id; ?>">Редактировать</a>
+                                <a class="btn btn-danger" href="/transaction/destroy?id=<? echo $transaction->id; ?>">Удалить</a>
                             </td>
                         </tr>
                     <?php

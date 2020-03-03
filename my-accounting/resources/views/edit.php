@@ -19,7 +19,7 @@
                 </li>
             </ul>
             <span class="navbar-text">
-                <?php echo $_SESSION['user']->getUserName(); ?>
+                <?php echo $_SESSION['user']->username; ?>
             </span>
             <span class="navbar-text">
                 <a class="nav-link" href="/auth/signout">Выйти</a>
@@ -43,11 +43,17 @@
                 </div>
                 <div class="form-group text-left">
                     <label for="time">Время операции:</label>
-                    <input class="form-control w-25"  type="time" name="time" step="1" value="<? echo DateTime::date_format($data->date, 'H:i:s'); ?>">
+                    <input class="form-control w-25" type="time" name="time" step="1" value="<?php
+                                                                                                $date = new DateTime($data->date);
+                                                                                                echo $date->format('H:i:s');
+                                                                                              ?>">
                 </div>
                 <div class="form-group text-left">
                     <label for="date">Дата операции:</label>
-                    <input class="form-control w-25"  type="date" name="date" value="<? echo DateTime::date_format($data->date, 'Y-m-d'); ?>">
+                    <input class="form-control w-25" type="date" name="date" value="<?php
+                                                                                        $date = new DateTime($data->date);
+                                                                                        echo $date->format('Y-m-d');
+                                                                                     ?>">
                 </div>
                 <button type="submit" class="btn btn-dark">Редактировать</button>
             </form>

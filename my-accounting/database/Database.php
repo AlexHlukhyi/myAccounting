@@ -3,8 +3,6 @@
 namespace database;
 
 use config\Config;
-use app\models\User;
-use app\models\Transaction;
 use DateTime;
 use PDO;
 
@@ -50,12 +48,38 @@ class Database {
     }
 
     public function getTransaction($transactionId) {
-        $statement = $this->db->prepare('select id, name, description, mneyAmount, date from transactions where id = ?');
+        $statement = $this->db->prepare('select id, name, description, moneyAmount, date from transactions where id = ?');
         $statement->setFetchMode(PDO::FETCH_OBJ);
         $statement->bindParam(1, $transactionId);
         $statement->execute();
         $transaction = $statement->fetch();
         return $transaction;
+    }
+
+    public function insTransaction($name, $description, $moneyAmount, $date, $userId) {
+        $statement = $this->db->prepare('insert into transactions(name, description, moneyAmount, date, idUser) values(?, ?, ?, ?, ?)');
+        $statement->bindParam(1, $name);
+        $statement->bindParam(2, $description);
+        $statement->bindParam(3, $moneyAmount);
+        $statement->bindParam(4, $date->format('Y-m-d H:i:s'));
+        $statement->bindParam(5, $userId);
+        $statement->execute();
+    }
+
+    public function editTransaction($id, $name, $description, $moneyAmount, $date) {
+        $statement = $this->db->prepare('update transactions set name = ?, description = ?, moneyAmount = ?, date = ? where id = ?');
+        $statement->bindParam(1, $name);
+        $statement->bindParam(2, $description);
+        $statement->bindParam(3, $moneyAmount);
+        $statement->bindParam(4, $date->format('Y-m-d H:i:s'));
+        $statement->bindParam(5, $id);
+        $statement->execute();
+    }
+
+    public function deleteTransaction($transactionId) {
+        $statement = $this->db->prepare('delete from transactions where id = ?');
+        $statement->bindParam(1, $transactionId);
+        $statement->execute();
     }
 }
 

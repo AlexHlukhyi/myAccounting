@@ -19,7 +19,7 @@
                 </li>
             </ul>
             <span class="navbar-text">
-                <?php echo $_SESSION['user']->getUserName(); ?>
+                <?php echo $_SESSION['user']->username; ?>
             </span>
             <span class="navbar-text">
                 <a class="nav-link" href="/auth/signout">Выйти</a>

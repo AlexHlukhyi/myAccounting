@@ -3,7 +3,6 @@
 namespace app\controllers;
 
 use DateTime;
-use app\models\Transaction;
 
 class TransactionController extends Controller {
     function index() {
@@ -17,12 +16,7 @@ class TransactionController extends Controller {
 
     function store() {
         if ($_POST) {
-            $transaction = new Transaction();
-            $transaction->setName($_POST['name']);
-            $transaction->setDescription($_POST['description']);
-            $transaction->setMoneyAmount($_POST['moneyAmount']);
-            $transaction->setDate(new DateTime($_POST['date'] . ' ' . $_POST['time']));
-            $this->db->insTransaction($transaction, $_SESSION['user']->getId());
+            $this->db->insTransaction($_POST['name'], $_POST['description'], $_POST['moneyAmount'], new DateTime($_POST['date'] . ' ' . $_POST['time']), $_SESSION['user']->id);
         }
         header('Location: /transaction/index');
     }
@@ -37,23 +31,15 @@ class TransactionController extends Controller {
     }
 
     function update() {
-        if ($_GET) {
-            $transaction = new Transaction();
-            $transaction->setId($_GET['id']);
-            $transaction->setName($_POST['name']);
-            $transaction->setDescription($_POST['description']);
-            $transaction->setMoneyAmount($_POST['moneyAmount']);
-            $transaction->setDate(new DateTime($_POST['date'] . ' ' . $_POST['time']));
-            $this->db->editTransaction($transaction);
+        if ($_GET['id'] && $_POST) {
+            $this->db->editTransaction($_GET['id'], $_POST['name'], $_POST['description'], $_POST['moneyAmount'], new DateTime($_POST['date'] . ' ' . $_POST['time']));
         }
         header('Location: /transaction/index');
     }
 
     function destroy() {
-        if ($_GET) {
-            $transaction = new Transaction();
-            $transaction->setId($_GET['id']);
-            $this->db->deleteTransaction($transaction);
+        if ($_GET['id']) {
+            $this->db->deleteTransaction($_GET['id']);
         }
         header('Location: /transaction/index');
     }

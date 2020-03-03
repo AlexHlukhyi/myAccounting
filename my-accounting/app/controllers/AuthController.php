@@ -2,8 +2,6 @@
 
 namespace app\controllers;
 
-use app\models\User;
-
 class AuthController extends Controller {
     function login() {
         $this->view->makeView('login');
