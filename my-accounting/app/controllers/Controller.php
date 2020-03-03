@@ -1,9 +1,9 @@
 <?php
 
-namespace Controllers;
+namespace app\controllers;
 
-use Databases\Database;
-use View\View;
+use database\Database;
+use app\view\View;
 
 class Controller {
     protected $view;

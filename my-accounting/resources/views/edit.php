@@ -30,24 +30,24 @@
 <main>
     <div class="container w-50">
         <div class="text-center mt-5">
-            <form method="post" action="/transaction/update?id=<? echo $data->getId(); ?>">
+            <form method="post" action="/transaction/update?id=<? echo $data->id; ?>">
                 <div class="form-group">
-                    <input class="form-control"  type="text" name="name" placeholder="Название" value="<? echo $data->getName(); ?>">
+                    <input class="form-control"  type="text" name="name" placeholder="Название" value="<? echo $data->name; ?>">
                 </div>
                 <div class="form-group">
-                    <input class="form-control"  type="text" name="description" placeholder="Описание" value="<? echo $data->getDescription(); ?>">
+                    <input class="form-control"  type="text" name="description" placeholder="Описание" value="<? echo $data->description; ?>">
                 </div>
                 <div class="form-group">
-                    <input class="form-control"  type="text" name="moneyAmount" placeholder="Сумма" value="<? echo $data->getMoneyAmount(); ?>">
+                    <input class="form-control"  type="text" name="moneyAmount" placeholder="Сумма" value="<? echo $data->moneyAmount; ?>">
                     <small class="form-text text-muted">Если эта операция убыточна - поставьте знак '-' перед суммой.</small>
                 </div>
                 <div class="form-group text-left">
                     <label for="time">Время операции:</label>
-                    <input class="form-control w-25"  type="time" name="time" step="1" value="<? echo $data->getDate()->format('H:i:s'); ?>">
+                    <input class="form-control w-25"  type="time" name="time" step="1" value="<? echo DateTime::date_format($data->date, 'H:i:s'); ?>">
                 </div>
                 <div class="form-group text-left">
                     <label for="date">Дата операции:</label>
-                    <input class="form-control w-25"  type="date" name="date" value="<? echo $data->getDate()->format('Y-m-d'); ?>">
+                    <input class="form-control w-25"  type="date" name="date" value="<? echo DateTime::date_format($data->date, 'Y-m-d'); ?>">
                 </div>
                 <button type="submit" class="btn btn-dark">Редактировать</button>
             </form>

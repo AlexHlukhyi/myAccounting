@@ -19,7 +19,7 @@
             </li>
         </ul>
         <span class="navbar-text">
-                <?php echo $_SESSION['user']->getUserName(); ?>
+                <?php echo $_SESSION['user']->username; ?>
             </span>
         <span class="navbar-text">
                 <a class="nav-link" href="/auth/signout">Выйти</a>
@@ -41,11 +41,16 @@
             <?php
                 foreach($data as $transaction) {
                     ?>
-                        <tr style="background-color: <?php echo ($transaction->getMoneyAmount()>0)?'palegreen':'lightcoral'; ?>;">
-                            <td><? echo $transaction->getName(); ?></td>
-                            <td><? echo $transaction->getDescription(); ?></td>
-                            <td><? echo $transaction->getMoneyAmount(); ?></td>
-                            <td><? echo $transaction->getDate()->format('H:i:s d.m.Y'); ?></td>
+                        <tr style="background-color: <?php echo ($transaction->moneyAmount>0)?'palegreen':'lightcoral'; ?>;">
+                            <td><? echo $transaction->name; ?></td>
+                            <td><? echo $transaction->description; ?></td>
+                            <td><? echo $transaction->moneyAmount; ?></td>
+                            <td>
+                                <?php
+                                    $date = new DateTime($transaction->date);
+                                    echo $date->format('H:i:s d.m.Y');
+                                ?>
+                            </td>
                             <td>
                                 <a class="btn btn-dark" href="/transaction/edit?id=<? echo $transaction->getId(); ?>">Редактировать</a>
                                 <a class="btn btn-danger" href="/transaction/destroy?id=<? echo $transaction->getId(); ?>">Удалить</a>

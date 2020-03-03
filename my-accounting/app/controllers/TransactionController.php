@@ -1,13 +1,13 @@
 <?php
 
-namespace Controllers;
+namespace app\controllers;
 
 use DateTime;
-use Model\Transaction;
+use app\models\Transaction;
 
 class TransactionController extends Controller {
     function index() {
-        $transactions = $this->db->getTransactions($_SESSION['user']->getId());
+        $transactions = $this->db->getTransactions($_SESSION['user']->id);
         $this->view->makeView('index', $transactions);
     }
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Controllers;
+namespace app\controllers;
 
-use Model\User;
+use app\models\User;
 
 class AuthController extends Controller {
     function login() {
@@ -15,22 +15,20 @@ class AuthController extends Controller {
 
     function signin() {
         if ($user = $this->db->getUser($_POST['login'])) {
-            if ($user->checkPassword($_POST['password'])) {
+            if ($user->password == $_POST['password']) {
                 $_SESSION['user'] = $user;
                 header('Location: /transaction/index');
             }
+        } else {
+            die('User not found!');
         }
     }
 
     function signup() {
         if ($_POST['password'] == $_POST['repeat-password']) {
             if (!$user = $this->db->getUser($_POST['login'])) {
-                $user = new User();
-                $user->setUsername($_POST['username']);
-                $user->setEmail($_POST['email']);
-                $user->setPassword($_POST['password']);
-                $this->db->insUser($user);
-                $_SESSION['user'] = $user;
+                $this->db->insUser($_POST['username'], $_POST['email'], $_POST['password']);
+                $_SESSION['user'] = $this->db->getUser($_POST['username']);
                 header('Location: /transaction/index');
             }
         }

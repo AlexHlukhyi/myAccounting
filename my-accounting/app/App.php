@@ -1,8 +1,8 @@
 <?php
 
-namespace Application;
+namespace app;
 
-use Controllers;
+use app\controllers;
 
 class App {
     private $controller;
@@ -32,7 +32,7 @@ class App {
 
         if(file_exists('../app/controllers/' . $controller . '.php')) {
             //include '../app/controllers/' . $controller . '.php';
-            $controller = 'Controllers\\' . $controller;
+            $controller = 'app\controllers\\' . $controller;
             $this->controller = new $controller();
             if(method_exists($this->controller, $action)) {
                 $this->controller->$action();

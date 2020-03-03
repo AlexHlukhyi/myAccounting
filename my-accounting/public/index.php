@@ -1,23 +1,13 @@
 <?php
 
-//autoloader for not using autorun.php everywhere
-//not ready yet
 spl_autoload_register(function ($className) {
-    $directories = array(
-        '../app/',
-        '../app/controllers/',
-        '../app/model/',
-        '../app/view/',
-        '../config/',
-        '../database/'
-    );
-    foreach($directories as $directory) {
-        if(file_exists($directory . $className . '.php')) {
-            require_once($directory . $className . '.php');
-            return;
-        }
+    $namespace = str_replace("\\","/",__NAMESPACE__);
+    $url = '../'. (empty($namespace)?"":$namespace . "/") . $className . '.php';
+    if(file_exists($url)) {
+        require_once($url);
+        return;
     }
 });
 
-$app = new Application\App();
+$app = new app\App();
 $app->run();
