@@ -1,16 +1,16 @@
 <?php
 
-namespace Controller;
+namespace Controllers;
 
-use Model\Data;
+use Databases\Database;
 use View\View;
 
 class Controller {
     protected $view;
-    protected $model;
+    protected $db;
 
     public function __construct() {
-        session_start();
         $this->view = new View();
+        $this->db = new Database();
     }
 }

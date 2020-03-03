@@ -1,3 +1,0 @@
-<?php
-
-// security reasons

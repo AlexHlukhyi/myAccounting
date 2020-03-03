@@ -1,19 +1,13 @@
 <?php
 
-namespace Controller;
+namespace Controllers;
 
 use DateTime;
 use Model\Transaction;
-use Model\TransactionData;
 
 class TransactionController extends Controller {
-    public function __construct() {
-        parent::__construct();
-        $this->model = new TransactionData();
-    }
-
     function index() {
-        $transactions = $this->model->getTransactions($_SESSION['user']->getId());
+        $transactions = $this->db->getTransactions($_SESSION['user']->getId());
         $this->view->makeView('index', $transactions);
     }
 
@@ -28,14 +22,14 @@ class TransactionController extends Controller {
             $transaction->setDescription($_POST['description']);
             $transaction->setMoneyAmount($_POST['moneyAmount']);
             $transaction->setDate(new DateTime($_POST['date'] . ' ' . $_POST['time']));
-            $this->model->insTransaction($transaction, $_SESSION['user']->getId());
+            $this->db->insTransaction($transaction, $_SESSION['user']->getId());
         }
         header('Location: /transaction/index');
     }
 
     function edit() {
         if ($_GET) {
-            $transaction = $this->model->getTransaction($_GET['id']);
+            $transaction = $this->db->getTransaction($_GET['id']);
             $this->view->makeView('edit', $transaction);
         } else {
             header('Location: /transaction/index');
@@ -50,7 +44,7 @@ class TransactionController extends Controller {
             $transaction->setDescription($_POST['description']);
             $transaction->setMoneyAmount($_POST['moneyAmount']);
             $transaction->setDate(new DateTime($_POST['date'] . ' ' . $_POST['time']));
-            $this->model->editTransaction($transaction);
+            $this->db->editTransaction($transaction);
         }
         header('Location: /transaction/index');
     }
@@ -59,7 +53,7 @@ class TransactionController extends Controller {
         if ($_GET) {
             $transaction = new Transaction();
             $transaction->setId($_GET['id']);
-            $this->model->deleteTransaction($transaction);
+            $this->db->deleteTransaction($transaction);
         }
         header('Location: /transaction/index');
     }
