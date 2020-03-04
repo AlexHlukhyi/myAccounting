@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use sys\Controller;
+
 class AuthController extends Controller {
     function login() {
         $this->view->makeView('login');
@@ -25,7 +27,11 @@ class AuthController extends Controller {
     function signup() {
         if ($_POST['password'] == $_POST['repeat-password']) {
             if (!$user = $this->db->getUser($_POST['login'])) {
-                $this->db->insUser($_POST['username'], $_POST['email'], $_POST['password']);
+                $this->db->insUser(array(
+                    'username' => $_POST['username'],
+                    'email' => $_POST['email'],
+                    'password' => $_POST['password']
+                ));
                 $_SESSION['user'] = $this->db->getUser($_POST['username']);
                 header('Location: /transaction/index');
             }

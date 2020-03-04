@@ -9,5 +9,6 @@ spl_autoload_register(function ($className) {
     }
 });
 
-$app = new app\App();
-$app->run();
+$router = new sys\Router();
+require '../routes/web.php';
+$router->run();

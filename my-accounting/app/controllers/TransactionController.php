@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use DateTime;
+use sys\Controller;
 
 class TransactionController extends Controller {
     function index() {
@@ -15,8 +16,15 @@ class TransactionController extends Controller {
     }
 
     function store() {
+        $date = new DateTime($_POST['date'] . ' ' . $_POST['time']);
         if ($_POST) {
-            $this->db->insTransaction($_POST['name'], $_POST['description'], $_POST['moneyAmount'], new DateTime($_POST['date'] . ' ' . $_POST['time']), $_SESSION['user']->id);
+            $this->db->insTransaction(array(
+                'name' => $_POST['name'],
+                'description' => $_POST['description'],
+                'moneyAmount' => $_POST['description'],
+                'date' => $date->format('Y-m-d H:i:s'),
+                'idUser' => $_SESSION['user']->id,
+            ));
         }
         header('Location: /transaction/index');
     }
@@ -31,8 +39,15 @@ class TransactionController extends Controller {
     }
 
     function update() {
+        $date = new DateTime($_POST['date'] . ' ' . $_POST['time']);
         if ($_GET['id'] && $_POST) {
-            $this->db->editTransaction($_GET['id'], $_POST['name'], $_POST['description'], $_POST['moneyAmount'], new DateTime($_POST['date'] . ' ' . $_POST['time']));
+            $this->db->editTransaction(array(
+                'id' => $_GET['id'],
+                'name' => $_POST['name'],
+                'description' => $_POST['description'],
+                'moneyAmount' => $_POST['description'],
+                'date' => $date->format('Y-m-d H:i:s'),
+            ));
         }
         header('Location: /transaction/index');
     }
