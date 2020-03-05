@@ -17,7 +17,7 @@ class AuthController extends Controller {
         if ($user = $this->db->getUser($_POST['login'])) {
             if ($user->password == $_POST['password']) {
                 $_SESSION['user'] = $user;
-                header('Location: /transaction/index');
+                header('Location: /transactions');
             }
         } else {
             die('User not found!');

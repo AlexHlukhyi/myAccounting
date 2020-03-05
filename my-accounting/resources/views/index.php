@@ -22,7 +22,7 @@
                 <?php echo $_SESSION['user']->username; ?>
             </span>
         <span class="navbar-text">
-                <a class="nav-link" href="/auth/signout">Выйти</a>
+                <a class="nav-link" href="/signout">Выйти</a>
             </span>
     </div>
 </nav>

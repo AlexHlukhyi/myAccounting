@@ -22,7 +22,7 @@
                 <?php echo $_SESSION['user']->username; ?>
             </span>
             <span class="navbar-text">
-                <a class="nav-link" href="/auth/signout">Выйти</a>
+                <a class="nav-link" href="/signout">Выйти</a>
             </span>
         </div>
     </nav>
@@ -30,7 +30,7 @@
 <main>
     <div class="container w-50">
         <div class="text-center mt-5">
-            <form method="post" action="/transaction/store">
+            <form method="post" action="/transaction/create">
                 <div class="form-group">
                     <input class="form-control" type="text" name="name" placeholder="Название" required>
                 </div>
@@ -51,7 +51,7 @@
                 </div>
                 <button type="submit" class="btn btn-dark">Создать</button>
             </form>
-            <a class="btn btn-sm btn-dark text-light mt-5" href="/transaction/index">На главную</a>
+            <a class="btn btn-sm btn-dark text-light mt-5" href="/transactions">На главную</a>
         </div>
     </div>
 </main>

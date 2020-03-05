@@ -21,12 +21,12 @@ class TransactionController extends Controller {
             $this->db->insTransaction(array(
                 'name' => $_POST['name'],
                 'description' => $_POST['description'],
-                'moneyAmount' => $_POST['description'],
+                'moneyAmount' => $_POST['moneyAmount'],
                 'date' => $date->format('Y-m-d H:i:s'),
                 'idUser' => $_SESSION['user']->id,
             ));
         }
-        header('Location: /transaction/index');
+        header('Location: /transactions');
     }
 
     function edit() {
@@ -34,7 +34,7 @@ class TransactionController extends Controller {
             $transaction = $this->db->getTransaction($_GET['id']);
             $this->view->makeView('edit', $transaction);
         } else {
-            header('Location: /transaction/index');
+            header('Location: /transactions');
         }
     }
 
@@ -49,13 +49,13 @@ class TransactionController extends Controller {
                 'date' => $date->format('Y-m-d H:i:s'),
             ));
         }
-        header('Location: /transaction/index');
+        header('Location: /transactions');
     }
 
     function destroy() {
         if ($_GET['id']) {
             $this->db->deleteTransaction($_GET['id']);
         }
-        header('Location: /transaction/index');
+        header('Location: /transactions');
     }
 }

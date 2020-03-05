@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6789a980-bfc4-4613-9f5e-e03d84cca700" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sys/Database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/my-accounting.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/Router.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/TransactionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/TransactionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/view/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/View.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Database.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/Route.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/Router.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,18 +46,17 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.PHP" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Program Files\openserver\domains\localhost\myAccounting\my-accounting\config" />
-      <recent name="C:\Program Files\OpenServer\OSPanel\domains\myAccounting\my-accounting\resourses" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Program Files\OpenServer\OSPanel\domains\myAccounting\my-accounting\sys" />
       <recent name="C:\Program Files\openserver\domains\localhost\myAccounting\my-accounting\app\model" />
       <recent name="C:\Program Files\openserver\domains\localhost\myAccounting\my-accounting\resourses\views" />
       <recent name="C:\Program Files\OpenServer\OSPanel\domains\myAccounting\my-accounting\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Program Files\openserver\domains\localhost\myAccounting\my-accounting\config" />
+      <recent name="C:\Program Files\OpenServer\OSPanel\domains\myAccounting\my-accounting\resourses" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -84,7 +86,8 @@
       <workItem from="1583194305269" duration="52000" />
       <workItem from="1583238992048" duration="9857000" />
       <workItem from="1583268890931" duration="72000" />
-      <workItem from="1583273257795" duration="6318000" />
+      <workItem from="1583273257795" duration="6743000" />
+      <workItem from="1583392402276" duration="8713000" />
     </task>
     <servers />
   </component>
@@ -92,10 +95,6 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1583334355890">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="714" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583334355890" />
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1583191593981">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -109,19 +108,19 @@
     </state>
     <state x="526" y="195" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1583193784306" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583158269583" />
-    <state x="373" y="149" key="NewPhpClassDialog" timestamp="1583189736287">
+    <state x="373" y="149" key="NewPhpClassDialog" timestamp="1583398034282">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="373" y="149" key="NewPhpClassDialog/0.0.1366.738@0.0.1366.738" timestamp="1583189736287" />
+    <state x="373" y="149" key="NewPhpClassDialog/0.0.1366.738@0.0.1366.738" timestamp="1583398034282" />
     <state x="632" y="335" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583162574186" />
     <state x="795" y="444" key="NewPhpFileDialog" timestamp="1583158720011">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="795" y="444" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583158720011" />
-    <state x="168" y="15" key="SettingsEditor" timestamp="1583193787176">
+    <state x="168" y="15" key="SettingsEditor" timestamp="1583395953980">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="168" y="15" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1583193787176" />
+    <state x="168" y="15" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1583395953980" />
     <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583158272107" />
     <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1583239040134">
       <screen x="0" y="0" width="1920" height="1040" />

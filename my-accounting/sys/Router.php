@@ -2,7 +2,8 @@
 
 namespace sys;
 
-use app\controllers;
+//use app\controllers\AuthController;
+//use app\controllers\TransactionController;
 
 class Router {
     private $controller;
@@ -34,55 +35,22 @@ class Router {
 
     public function run() {
         $method = strtolower($_SERVER['REQUEST_METHOD']);
-        $action = 'index';
-        $controller = 'TransactionController';
-        //parsing url
-        $routes = explode('/', str_replace('?', '/', $_SERVER['REQUEST_URI']));
-        if (!empty($routes[1])) {
-            $controller = ucfirst($routes[1]) . 'Controller';
+        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        if (!$_SESSION['user'] && !in_array($path, array('/login', '/signin', '/signup', '/signout', '/register'))) {
+            $this->controller = new \app\controllers\AuthController();
+            $this->controller->login();
+            return;
         }
-        if (!empty($routes[2])) {
-            $action = $routes[2];
-        }
-        //check if user is already in session
-        if (!in_array($action, array('login', 'signin', 'signup', 'signout', 'register'))) {
-            if(!$_SESSION['user']) {
-                $controller = 'AuthController';
-                $action = 'login';
+        foreach (self::$routes[$method] as $route) {
+            if ($route['route'] == $path) {
+                $controller = '\app\controllers\\' . $route['controller'];
+                $this->controller = new $controller();
+                $function = $route['function'];
+                $this->controller->$function();
+                return;
             }
         }
-    }
-
-    public function altrun() {
-        $action = 'index';
-        $controller = 'TransactionController';
-        //parsing url
-        $routes = explode('/', str_replace('?', '/', $_SERVER['REQUEST_URI']));
-        if (!empty($routes[1])) {
-            $controller = ucfirst($routes[1]) . 'Controller';
-        }
-        if (!empty($routes[2])) {
-            $action = $routes[2];
-        }
-        //check if user is already in session
-        if (!in_array($action, array('login', 'signin', 'signup', 'signout', 'register'))) {
-            if(!$_SESSION['user']) {
-                $controller = 'AuthController';
-                $action = 'login';
-            }
-        }
-
-        if(file_exists('../app/controllers/' . $controller . '.php')) {
-            //include '../app/controllers/' . $controller . '.php';
-            $controller = 'app\controllers\\' . $controller;
-            $this->controller = new $controller();
-            if(method_exists($this->controller, $action)) {
-                $this->controller->$action();
-            } else {
-                die('Method' . $action . '() in ' . $controller . 'not found!');
-            }
-        } else {
-            die($controller . ' not found!');
-        }
+        $this->controller = new \app\controllers\TransactionController();
+        $this->controller->index();
     }
 }
