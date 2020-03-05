@@ -11,7 +11,7 @@ class Router {
 
     public function __construct() {
         session_start();
-        self::$routes = array();
+        self::$routes = [];
     }
 
     private static function add($method, $route, $action) {
@@ -31,6 +31,10 @@ class Router {
 
     public static function post($route, $action) {
         self::add('post', $route, $action);
+    }
+
+    public static function delete($route, $action) {
+        self::add('delete', $route, $action);
     }
 
     public function run() {

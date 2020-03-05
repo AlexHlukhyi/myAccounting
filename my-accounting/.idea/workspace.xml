@@ -2,19 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6789a980-bfc4-4613-9f5e-e03d84cca700" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/my-accounting.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/sys/DB.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/TransactionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/TransactionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/Database.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/sys/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/View.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +88,7 @@
       <workItem from="1583268890931" duration="72000" />
       <workItem from="1583273257795" duration="6743000" />
       <workItem from="1583392402276" duration="8713000" />
+      <workItem from="1583408511390" duration="11455000" />
     </task>
     <servers />
   </component>
@@ -95,28 +96,33 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="309" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1583418221205">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="309" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583418221205" />
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1583191593981">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1583191593981" />
-    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1583190756782">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="580" y="173" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1583417102264">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1583190756782" />
+    <state x="580" y="173" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583417102264" />
     <state x="526" y="195" key="FileChooserDialogImpl" timestamp="1583193784306">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="526" y="195" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1583193784306" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583158269583" />
-    <state x="373" y="149" key="NewPhpClassDialog" timestamp="1583398034282">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="373" y="149" key="NewPhpClassDialog/0.0.1366.738@0.0.1366.738" timestamp="1583398034282" />
-    <state x="632" y="335" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583162574186" />
-    <state x="795" y="444" key="NewPhpFileDialog" timestamp="1583158720011">
+    <state x="632" y="335" key="NewPhpClassDialog" timestamp="1583415736840">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="795" y="444" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583158720011" />
+    <state x="373" y="149" key="NewPhpClassDialog/0.0.1366.738@0.0.1366.738" timestamp="1583398034282" />
+    <state x="632" y="335" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583415736840" />
+    <state x="795" y="444" key="NewPhpFileDialog" timestamp="1583415781814">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="795" y="444" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583415781814" />
     <state x="168" y="15" key="SettingsEditor" timestamp="1583395953980">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

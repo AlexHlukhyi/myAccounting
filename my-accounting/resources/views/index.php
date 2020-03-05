@@ -41,10 +41,10 @@
             <?php
                 foreach($data as $transaction) {
                     ?>
-                        <tr style="background-color: <?php echo ($transaction->moneyAmount>0)?'palegreen':'lightcoral'; ?>;">
+                        <tr style="background-color: <?php echo ($transaction->money_amount>0)?'palegreen':'lightcoral'; ?>;">
                             <td><? echo $transaction->name; ?></td>
                             <td><? echo $transaction->description; ?></td>
-                            <td><? echo $transaction->moneyAmount; ?></td>
+                            <td><? echo $transaction->money_amount; ?></td>
                             <td>
                                 <?php
                                     $date = new DateTime($transaction->date);
@@ -53,7 +53,7 @@
                             </td>
                             <td>
                                 <a class="btn btn-dark" href="/transaction/edit?id=<? echo $transaction->id; ?>">Редактировать</a>
-                                <a class="btn btn-danger" href="/transaction/destroy?id=<? echo $transaction->id; ?>">Удалить</a>
+                                <a class="btn btn-danger" href="/transaction/delete?id=<? echo $transaction->id; ?>">Удалить</a>
                             </td>
                         </tr>
                     <?php

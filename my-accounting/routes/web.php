@@ -11,3 +11,6 @@ Router::get('/signout', 'AuthController@signout');
 Router::get('/', 'TransactionController@index');
 Router::get('/transaction/create', 'TransactionController@create');
 Router::post('/transaction/create', 'TransactionController@store');
+Router::get('/transaction/delete', 'TransactionController@destroy');
+Router::get('/transaction/edit', 'TransactionController@edit');
+Router::post('/transaction/edit', 'TransactionController@update');

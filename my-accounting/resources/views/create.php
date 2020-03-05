@@ -28,6 +28,7 @@
     </nav>
 </header>
 <main>
+
     <div class="container w-50">
         <div class="text-center mt-5">
             <form method="post" action="/transaction/create">

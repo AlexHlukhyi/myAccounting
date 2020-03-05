@@ -22,7 +22,7 @@
                 <?php echo $_SESSION['user']->username; ?>
             </span>
             <span class="navbar-text">
-                <a class="nav-link" href="/auth/signout">Выйти</a>
+                <a class="nav-link" href="/signout">Выйти</a>
             </span>
         </div>
     </nav>
@@ -30,7 +30,7 @@
 <main>
     <div class="container w-50">
         <div class="text-center mt-5">
-            <form method="post" action="/transaction/update?id=<? echo $data->id; ?>">
+            <form method="post" action="/transaction/edit?id=<? echo $data->id; ?>">
                 <div class="form-group">
                     <input class="form-control"  type="text" name="name" placeholder="Название" value="<? echo $data->name; ?>">
                 </div>
@@ -38,7 +38,7 @@
                     <input class="form-control"  type="text" name="description" placeholder="Описание" value="<? echo $data->description; ?>">
                 </div>
                 <div class="form-group">
-                    <input class="form-control"  type="text" name="moneyAmount" placeholder="Сумма" value="<? echo $data->moneyAmount; ?>">
+                    <input class="form-control"  type="text" name="moneyAmount" placeholder="Сумма" value="<? echo $data->money_amount; ?>">
                     <small class="form-text text-muted">Если эта операция убыточна - поставьте знак '-' перед суммой.</small>
                 </div>
                 <div class="form-group text-left">
@@ -57,7 +57,7 @@
                 </div>
                 <button type="submit" class="btn btn-dark">Редактировать</button>
             </form>
-            <a class="btn btn-sm btn-dark text-light mt-5" href="/transaction/index">На главную</a>
+            <a class="btn btn-sm btn-dark text-light mt-5" href="/transactions">На главную</a>
         </div>
     </div>
 </main>
